@@ -2,7 +2,7 @@
 /subscribe   https://remix.run/newsletter
 /shorten     https://github.com/kentcdodds/rmx.as/edit/main/_redirects
 /docs        https://docs.remix.run
-/meetup      https://www.meetup.com/remix-run
+/meetup      https://www.meetup.com/pro/remix-run
 /discord     https://discord.gg/remix
 
 /*           https://remix.run
