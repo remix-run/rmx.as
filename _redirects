@@ -3,6 +3,6 @@
 /shorten     https://github.com/kentcdodds/rmx.as/edit/main/_redirects
 /docs        https://docs.remix.run
 /meetup      https://www.meetup.com/remix-run
-/discord     http://discord.gg/remix
+/discord     https://discord.gg/remix
 
 /*           https://remix.run
