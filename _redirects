@@ -1,10 +1,11 @@
-/jokes       https://remix.run/docs/en/v1/tutorials/jokes
-/github      https://github.com/remix-run/remix
-/news        https://remix.run/newsletter
-/subscribe   https://remix.run/newsletter
-/shorten     https://github.com/kentcdodds/rmx.as/edit/main/_redirects
-/docs        https://docs.remix.run
-/meetup      https://www.meetup.com/pro/remix-run
-/discord     https://discord.gg/remix
+/speak-utah   https://docs.google.com/forms/d/e/1FAIpQLScinNZZ4JdS7t-uJlpNahAORvL6x_1F_HHVGGdp_vLbC6Hb9A/viewform?usp=sf_link
+/jokes        https://remix.run/docs/en/v1/tutorials/jokes
+/github       https://github.com/remix-run/remix
+/news         https://remix.run/newsletter
+/subscribe    https://remix.run/newsletter
+/shorten      https://github.com/kentcdodds/rmx.as/edit/main/_redirects
+/docs         https://docs.remix.run
+/meetup       https://www.meetup.com/pro/remix-run
+/discord      https://discord.gg/remix
 
-/*           https://remix.run
+/*            https://remix.run
