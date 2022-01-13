@@ -6,6 +6,7 @@
 /jokes        https://remix.run/docs/en/v1/tutorials/jokes
 /github       https://github.com/remix-run/remix
 /news         https://remix.run/newsletter
+/newsletter   https://remix.run/newsletter
 /subscribe    https://remix.run/newsletter
 /shorten      https://github.com/kentcdodds/rmx.as/edit/main/_redirects
 /docs         https://docs.remix.run
