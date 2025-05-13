@@ -4,10 +4,6 @@
 /errors           https://remix.run/guides/errors
 /flow             https://centered.app/flow/remix
 /podcast          https://remix.run/podcast
-/conf-hotel       https://www.marriott.com/events/start.mi?id=1642464066071&key=GRP
-/tickets          https://ti.to/remix-conf/2023
-/conf-tix         https://ti.to/remix-conf/2023
-/cfp              https://remix.run/conf
 /youtube          https://www.youtube.com/c/Remix-Run
 /YouTube          https://www.youtube.com/c/Remix-Run
 /singles          https://www.youtube.com/playlist?list=PLXoynULbYuEDG2wBFSZ66b85EIspy3fy6
@@ -23,5 +19,7 @@
 /discord          https://discord.gg/xwx7mMzVkA
 /jobs             https://remixsoftware.applytojob.com/apply
 /roadmap          https://github.com/orgs/remix-run/projects/5
+/jam              https://remix.run/jam/2025
+/jam-ticket       https://remix.run/jam/2025/ticket
 
 /*                https://remix.run
