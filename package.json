@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kentcdodds/rmx.as.git"
+    "url": "git+https://github.com/remix-run/rmx.as.git"
   },
   "keywords": [],
   "author": "Kent C. Dodds <kent@remix.run> (https://remix.run/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kentcdodds/rmx.as/issues"
+    "url": "https://github.com/remix-run/rmx.as/issues"
   },
-  "homepage": "https://github.com/kentcdodds/rmx.as#readme",
+  "homepage": "https://github.com/remix-run/rmx.as#readme",
   "devDependencies": {
     "netlify-shortener": "^2.4.0"
   }
