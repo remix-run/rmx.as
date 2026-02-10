@@ -4,7 +4,19 @@ Short URLs for rmx.as, powered by Netlify.
 
 ## How it works
 
-- **`_redirects`** – Defines all redirect rules. Add paths and destination URLs, one per line: `/path    https://destination.com`
+- **`_redirects`** – Defines all redirect rules. One rule per line: `from to [status]`
+
+### Format
+
+| Syntax            | Example                                    |
+| ----------------- | ------------------------------------------ |
+| Static            | `/path      https://destination.com`       |
+| Catch-all (splat) | `/blog/*    https://remix.run/blog/:splat` |
+| With status       | `/old       /new    301`                   |
+
+The `:splat` placeholder captures whatever the `*` matches. So `/blog/2024/my-post` redirects to `https://remix.run/blog/2024/my-post`.
+
+**Reference:** [Cloudflare Pages Redirects](https://developers.cloudflare.com/pages/configuration/redirects/)
 
 ## Deploying
 

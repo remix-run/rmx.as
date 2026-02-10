@@ -6,11 +6,9 @@
     "node": "24"
   },
   "scripts": {
-    "deploy": "wrangler deploy",
     "format": "node scripts/format.ts"
   },
   "devDependencies": {
-    "@types/node": "^24",
-    "wrangler": "latest"
+    "@types/node": "^24"
   }
 }
