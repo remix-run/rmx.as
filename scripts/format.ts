@@ -1,54 +1,69 @@
-#!/usr/bin/env node
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const redirectPath = join(__dirname, "..", "_redirects");
-const PADDING = 10;
-
-const contents = readFileSync(redirectPath, "utf8");
-const lines = contents.split("\n");
+const PADDING = 5;
+const REDIRECTS_PATH = join(
+  dirname(fileURLToPath(import.meta.url)),
+  "..",
+  "_redirects",
+);
 
 interface Entry {
   path: string;
   destination: string;
 }
 
-const entries: Entry[] = [];
-let catchAll: Entry | null = null;
+const isCatchAll = (path: string) => path === "/*" || path === "/";
 
-for (const line of lines) {
-  const trimmed = line.trim();
-  if (!trimmed) continue;
+function parseRedirects(contents: string): {
+  entries: Entry[];
+  catchAll: Entry | null;
+} {
+  const entries: Entry[] = [];
+  let catchAll: Entry | null = null;
 
-  const match = trimmed.match(/^(\S+)\s+(.+)$/);
-  if (!match) continue;
+  for (const line of contents.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
 
-  const [, path, destination] = match;
-  if (path === "/*" || path === "/") {
-    catchAll = { path, destination };
-  } else {
-    entries.push({ path, destination });
+    const match = trimmed.match(/^(\S+)\s+(.+)$/);
+    if (!match) continue;
+
+    const [, path, destination] = match;
+    if (isCatchAll(path)) {
+      catchAll = { path, destination };
+    } else {
+      entries.push({ path, destination });
+    }
   }
+
+  return { entries, catchAll };
 }
 
-entries.sort((a, b) =>
-  a.path.localeCompare(b.path, undefined, { sensitivity: "base" }),
+function formatRedirects(entries: Entry[], catchAll: Entry | null): string {
+  entries.sort((a, b) =>
+    a.path.localeCompare(b.path, undefined, { sensitivity: "base" }),
+  );
+
+  const longest = Math.max(
+    0,
+    ...entries.map((e) => e.path.length),
+    catchAll?.path.length ?? 0,
+  );
+  const width = longest + PADDING;
+
+  const lines = entries.map((e) => `${e.path.padEnd(width)}${e.destination}`);
+  if (catchAll) {
+    lines.push("", `${catchAll.path.padEnd(width)}${catchAll.destination}`);
+  }
+
+  return lines.join("\n") + "\n\n";
+}
+
+const { entries, catchAll } = parseRedirects(
+  readFileSync(REDIRECTS_PATH, "utf8"),
 );
 
-const longest = Math.max(
-  ...entries.map((e) => e.path.length),
-  catchAll ? catchAll.path.length : 0,
-);
-const width = longest + PADDING;
-
-const formatted = [
-  ...entries.map((e) => `${e.path.padEnd(width)}${e.destination}`),
-  ...(catchAll
-    ? [`${catchAll.path.padEnd(width)}${catchAll.destination}`]
-    : []),
-].join("\n");
-
-writeFileSync(redirectPath, formatted + "\n\n");
+writeFileSync(REDIRECTS_PATH, formatRedirects(entries, catchAll));
 console.log("Formatted _redirects");
